@@ -1,0 +1,106 @@
+[2025-09-23T03:06:48.397Z] GET /api/carrito - 404 - IP: ::1 - User: anonymous - Time: 3ms - Data: "{\"success\":false,\"mensaje\":\"Ruta no encontrada\",\"codigo\":\"ROUTE_NOT_FOUND\",\"ruta\":\"/api/carrito\",\"metodo\":\"GET\",\"timestamp\":\"2025-09-23T03:06:48.396Z\"}"
+[2025-09-23T03:06:48.422Z] GET /api/carrito - 404 - IP: ::1 - User: anonymous - Time: 5ms - Data: "{\"success\":false,\"mensaje\":\"Ruta no encontrada\",\"codigo\":\"ROUTE_NOT_FOUND\",\"ruta\":\"/api/carrito\",\"metodo\":\"GET\",\"timestamp\":\"2025-09-23T03:06:48.419Z\"}"
+[2025-09-23T03:12:40.447Z] GET /api/carrito - 404 - IP: ::1 - User: anonymous - Time: 1ms - Data: "{\"success\":false,\"mensaje\":\"Ruta no encontrada\",\"codigo\":\"ROUTE_NOT_FOUND\",\"ruta\":\"/api/carrito\",\"metodo\":\"GET\",\"timestamp\":\"2025-09-23T03:12:40.446Z\"}"
+[2025-09-23T03:12:40.458Z] GET /api/carrito - 404 - IP: ::1 - User: anonymous - Time: 2ms - Data: "{\"success\":false,\"mensaje\":\"Ruta no encontrada\",\"codigo\":\"ROUTE_NOT_FOUND\",\"ruta\":\"/api/carrito\",\"metodo\":\"GET\",\"timestamp\":\"2025-09-23T03:12:40.456Z\"}"
+[2025-09-23T03:12:46.657Z] GET /api/carrito - 404 - IP: ::1 - User: anonymous - Time: 2ms - Data: "{\"success\":false,\"mensaje\":\"Ruta no encontrada\",\"codigo\":\"ROUTE_NOT_FOUND\",\"ruta\":\"/api/carrito\",\"metodo\":\"GET\",\"timestamp\":\"2025-09-23T03:12:46.655Z\"}"
+[2025-09-23T03:12:46.667Z] GET /api/carrito - 404 - IP: ::1 - User: anonymous - Time: 1ms - Data: "{\"success\":false,\"mensaje\":\"Ruta no encontrada\",\"codigo\":\"ROUTE_NOT_FOUND\",\"ruta\":\"/api/carrito\",\"metodo\":\"GET\",\"timestamp\":\"2025-09-23T03:12:46.666Z\"}"
+[2025-09-23T03:12:49.597Z] GET /api/carrito - 404 - IP: ::1 - User: anonymous - Time: 1ms - Data: "{\"success\":false,\"mensaje\":\"Ruta no encontrada\",\"codigo\":\"ROUTE_NOT_FOUND\",\"ruta\":\"/api/carrito\",\"metodo\":\"GET\",\"timestamp\":\"2025-09-23T03:12:49.595Z\"}"
+[2025-09-23T03:12:49.605Z] GET /api/carrito - 404 - IP: ::1 - User: anonymous - Time: 2ms - Data: "{\"success\":false,\"mensaje\":\"Ruta no encontrada\",\"codigo\":\"ROUTE_NOT_FOUND\",\"ruta\":\"/api/carrito\",\"metodo\":\"GET\",\"timestamp\":\"2025-09-23T03:12:49.603Z\"}"
+[2025-09-23T03:12:53.961Z] GET /api/carrito - 404 - IP: ::1 - User: anonymous - Time: 1ms - Data: "{\"success\":false,\"mensaje\":\"Ruta no encontrada\",\"codigo\":\"ROUTE_NOT_FOUND\",\"ruta\":\"/api/carrito\",\"metodo\":\"GET\",\"timestamp\":\"2025-09-23T03:12:53.959Z\"}"
+[2025-09-23T03:12:53.967Z] GET /api/carrito - 404 - IP: ::1 - User: anonymous - Time: 1ms - Data: "{\"success\":false,\"mensaje\":\"Ruta no encontrada\",\"codigo\":\"ROUTE_NOT_FOUND\",\"ruta\":\"/api/carrito\",\"metodo\":\"GET\",\"timestamp\":\"2025-09-23T03:12:53.966Z\"}"
+[2025-09-23T03:14:28.359Z] GET /api/carrito - 404 - IP: ::1 - User: anonymous - Time: 14ms - Data: "{\"success\":false,\"mensaje\":\"Ruta no encontrada\",\"codigo\":\"ROUTE_NOT_FOUND\",\"ruta\":\"/api/carrito\",\"metodo\":\"GET\",\"timestamp\":\"2025-09-23T03:14:28.355Z\"}"
+[2025-09-23T03:14:28.380Z] GET /api/carrito - 404 - IP: ::1 - User: anonymous - Time: 3ms - Data: "{\"success\":false,\"mensaje\":\"Ruta no encontrada\",\"codigo\":\"ROUTE_NOT_FOUND\",\"ruta\":\"/api/carrito\",\"metodo\":\"GET\",\"timestamp\":\"2025-09-23T03:14:28.378Z\"}"
+[2025-09-23T03:14:42.949Z] GET /api/carrito - 404 - IP: ::1 - User: anonymous - Time: 1ms - Data: "{\"success\":false,\"mensaje\":\"Ruta no encontrada\",\"codigo\":\"ROUTE_NOT_FOUND\",\"ruta\":\"/api/carrito\",\"metodo\":\"GET\",\"timestamp\":\"2025-09-23T03:14:42.948Z\"}"
+[2025-09-23T03:14:43.009Z] GET /api/carrito - 404 - IP: ::1 - User: anonymous - Time: 2ms - Data: "{\"success\":false,\"mensaje\":\"Ruta no encontrada\",\"codigo\":\"ROUTE_NOT_FOUND\",\"ruta\":\"/api/carrito\",\"metodo\":\"GET\",\"timestamp\":\"2025-09-23T03:14:43.001Z\"}"
+[2025-09-23T03:16:29.419Z] GET /api/carrito - 404 - IP: ::1 - User: anonymous - Time: 2ms - Data: "{\"success\":false,\"mensaje\":\"Ruta no encontrada\",\"codigo\":\"ROUTE_NOT_FOUND\",\"ruta\":\"/api/carrito\",\"metodo\":\"GET\",\"timestamp\":\"2025-09-23T03:16:29.416Z\"}"
+[2025-09-23T03:16:29.470Z] GET /api/carrito - 404 - IP: ::1 - User: anonymous - Time: 3ms - Data: "{\"success\":false,\"mensaje\":\"Ruta no encontrada\",\"codigo\":\"ROUTE_NOT_FOUND\",\"ruta\":\"/api/carrito\",\"metodo\":\"GET\",\"timestamp\":\"2025-09-23T03:16:29.467Z\"}"
+[2025-09-23T03:16:29.512Z] GET /api/carrito - 404 - IP: ::1 - User: anonymous - Time: 2ms - Data: "{\"success\":false,\"mensaje\":\"Ruta no encontrada\",\"codigo\":\"ROUTE_NOT_FOUND\",\"ruta\":\"/api/carrito\",\"metodo\":\"GET\",\"timestamp\":\"2025-09-23T03:16:29.508Z\"}"
+[2025-09-23T03:16:29.571Z] GET /api/carrito - 404 - IP: ::1 - User: anonymous - Time: 2ms - Data: "{\"success\":false,\"mensaje\":\"Ruta no encontrada\",\"codigo\":\"ROUTE_NOT_FOUND\",\"ruta\":\"/api/carrito\",\"metodo\":\"GET\",\"timestamp\":\"2025-09-23T03:16:29.562Z\"}"
+[2025-09-23T03:16:39.397Z] GET /api/carrito - 404 - IP: ::1 - User: anonymous - Time: 3ms - Data: "{\"success\":false,\"mensaje\":\"Ruta no encontrada\",\"codigo\":\"ROUTE_NOT_FOUND\",\"ruta\":\"/api/carrito\",\"metodo\":\"GET\",\"timestamp\":\"2025-09-23T03:16:39.392Z\"}"
+[2025-09-23T03:16:39.437Z] GET /api/carrito - 404 - IP: ::1 - User: anonymous - Time: 2ms - Data: "{\"success\":false,\"mensaje\":\"Ruta no encontrada\",\"codigo\":\"ROUTE_NOT_FOUND\",\"ruta\":\"/api/carrito\",\"metodo\":\"GET\",\"timestamp\":\"2025-09-23T03:16:39.434Z\"}"
+[2025-09-23T03:16:39.478Z] GET /api/carrito - 404 - IP: ::1 - User: anonymous - Time: 2ms - Data: "{\"success\":false,\"mensaje\":\"Ruta no encontrada\",\"codigo\":\"ROUTE_NOT_FOUND\",\"ruta\":\"/api/carrito\",\"metodo\":\"GET\",\"timestamp\":\"2025-09-23T03:16:39.475Z\"}"
+[2025-09-23T03:16:39.521Z] GET /api/carrito - 404 - IP: ::1 - User: anonymous - Time: 5ms - Data: "{\"success\":false,\"mensaje\":\"Ruta no encontrada\",\"codigo\":\"ROUTE_NOT_FOUND\",\"ruta\":\"/api/carrito\",\"metodo\":\"GET\",\"timestamp\":\"2025-09-23T03:16:39.517Z\"}"
+[2025-09-23T03:17:21.371Z] GET /api/carrito - 404 - IP: ::1 - User: anonymous - Time: 1ms - Data: "{\"success\":false,\"mensaje\":\"Ruta no encontrada\",\"codigo\":\"ROUTE_NOT_FOUND\",\"ruta\":\"/api/carrito\",\"metodo\":\"GET\",\"timestamp\":\"2025-09-23T03:17:21.369Z\"}"
+[2025-09-23T03:17:21.398Z] GET /api/carrito - 404 - IP: ::1 - User: anonymous - Time: 2ms - Data: "{\"success\":false,\"mensaje\":\"Ruta no encontrada\",\"codigo\":\"ROUTE_NOT_FOUND\",\"ruta\":\"/api/carrito\",\"metodo\":\"GET\",\"timestamp\":\"2025-09-23T03:17:21.396Z\"}"
+[2025-09-23T03:17:21.422Z] GET /api/carrito - 404 - IP: ::1 - User: anonymous - Time: 1ms - Data: "{\"success\":false,\"mensaje\":\"Ruta no encontrada\",\"codigo\":\"ROUTE_NOT_FOUND\",\"ruta\":\"/api/carrito\",\"metodo\":\"GET\",\"timestamp\":\"2025-09-23T03:17:21.421Z\"}"
+[2025-09-23T03:17:21.443Z] GET /api/carrito - 404 - IP: ::1 - User: anonymous - Time: 1ms - Data: "{\"success\":false,\"mensaje\":\"Ruta no encontrada\",\"codigo\":\"ROUTE_NOT_FOUND\",\"ruta\":\"/api/carrito\",\"metodo\":\"GET\",\"timestamp\":\"2025-09-23T03:17:21.442Z\"}"
+[2025-09-23T03:23:55.924Z] ERROR - POST /api/auth/admin-login - IP: ::1 - User: anonymous - Error: cmd.onResult is not a function
+{
+  "timestamp": "2025-09-23T03:23:55.922Z",
+  "method": "POST",
+  "url": "/api/auth/admin-login",
+  "ip": "::1",
+  "userId": "anonymous",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36",
+  "error": {
+    "name": "TypeError",
+    "message": "cmd.onResult is not a function",
+    "stack": "TypeError: cmd.onResult is not a function\n    at Connection._addCommandClosedState (C:\\Users\\wendy\\Desktop\\NuevaTienda\\backend\\node_modules\\mysql2\\lib\\base\\connection.js:164:11)\n    at Connection.query (C:\\Users\\wendy\\Desktop\\NuevaTienda\\backend\\node_modules\\mysql2\\lib\\base\\connection.js:571:17)\n    at Object.buscarPorCredenciales (C:\\Users\\wendy\\Desktop\\NuevaTienda\\backend\\models\\usuarioModel.js:41:8)\n    at C:\\Users\\wendy\\Desktop\\NuevaTienda\\backend\\src\\server.js:157:38\n    at C:\\Users\\wendy\\Desktop\\NuevaTienda\\backend\\middlewares\\errorMiddleware.js:184:21\n    at Layer.handle [as handle_request] (C:\\Users\\wendy\\Desktop\\NuevaTienda\\backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\wendy\\Desktop\\NuevaTienda\\backend\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at procesarValidacion (C:\\Users\\wendy\\Desktop\\NuevaTienda\\backend\\middlewares\\validationMiddleware.js:27:5)\n    at Layer.handle [as handle_request] (C:\\Users\\wendy\\Desktop\\NuevaTienda\\backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\wendy\\Desktop\\NuevaTienda\\backend\\node_modules\\express\\lib\\router\\route.js:149:13)"
+  },
+  "body": {
+    "usuario": "admin",
+    "password": "password"
+  },
+  "query": {},
+  "params": {}
+}
+[2025-09-23T03:23:55.946Z] POST /api/auth/admin-login - 500 - IP: ::1 - User: anonymous - Time: 52ms - Data: "{\"success\":false,\"mensaje\":\"cmd.onResult is not a function\",\"codigo\":\"INTERNAL_ERROR\",\"timestamp\":\"2025-09-23T03:23:55.940Z\"}"
+[2025-09-23T03:23:57.272Z] ERROR - POST /api/auth/admin-login - IP: ::1 - User: anonymous - Error: cmd.onResult is not a function
+{
+  "timestamp": "2025-09-23T03:23:57.270Z",
+  "method": "POST",
+  "url": "/api/auth/admin-login",
+  "ip": "::1",
+  "userId": "anonymous",
+  "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36",
+  "error": {
+    "name": "TypeError",
+    "message": "cmd.onResult is not a function",
+    "stack": "TypeError: cmd.onResult is not a function\n    at Connection._addCommandClosedState (C:\\Users\\wendy\\Desktop\\NuevaTienda\\backend\\node_modules\\mysql2\\lib\\base\\connection.js:164:11)\n    at Connection.query (C:\\Users\\wendy\\Desktop\\NuevaTienda\\backend\\node_modules\\mysql2\\lib\\base\\connection.js:571:17)\n    at Object.buscarPorCredenciales (C:\\Users\\wendy\\Desktop\\NuevaTienda\\backend\\models\\usuarioModel.js:41:8)\n    at C:\\Users\\wendy\\Desktop\\NuevaTienda\\backend\\src\\server.js:157:38\n    at C:\\Users\\wendy\\Desktop\\NuevaTienda\\backend\\middlewares\\errorMiddleware.js:184:21\n    at Layer.handle [as handle_request] (C:\\Users\\wendy\\Desktop\\NuevaTienda\\backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\wendy\\Desktop\\NuevaTienda\\backend\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at procesarValidacion (C:\\Users\\wendy\\Desktop\\NuevaTienda\\backend\\middlewares\\validationMiddleware.js:27:5)\n    at Layer.handle [as handle_request] (C:\\Users\\wendy\\Desktop\\NuevaTienda\\backend\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (C:\\Users\\wendy\\Desktop\\NuevaTienda\\backend\\node_modules\\express\\lib\\router\\route.js:149:13)"
+  },
+  "body": {
+    "usuario": "admin",
+    "password": "password"
+  },
+  "query": {},
+  "params": {}
+}
+[2025-09-23T03:23:57.288Z] POST /api/auth/admin-login - 500 - IP: ::1 - User: anonymous - Time: 24ms - Data: "{\"success\":false,\"mensaje\":\"cmd.onResult is not a function\",\"codigo\":\"INTERNAL_ERROR\",\"timestamp\":\"2025-09-23T03:23:57.278Z\"}"
+[2025-09-23T03:39:12.168Z] POST /api/citas - 401 - IP: ::1 - User: anonymous - Time: 7ms - Data: "{\"success\":false,\"mensaje\":\"Token inválido\",\"codigo\":\"INVALID_TOKEN\"}"
+[2025-09-23T03:39:30.741Z] POST /api/carrito - 404 - IP: ::1 - User: anonymous - Time: 4ms - Data: "{\"success\":false,\"mensaje\":\"Ruta no encontrada\",\"codigo\":\"ROUTE_NOT_FOUND\",\"ruta\":\"/api/carrito\",\"metodo\":\"POST\",\"timestamp\":\"2025-09-23T03:39:30.735Z\"}"
+[2025-09-23T03:39:32.646Z] POST /api/carrito - 404 - IP: ::1 - User: anonymous - Time: 3ms - Data: "{\"success\":false,\"mensaje\":\"Ruta no encontrada\",\"codigo\":\"ROUTE_NOT_FOUND\",\"ruta\":\"/api/carrito\",\"metodo\":\"POST\",\"timestamp\":\"2025-09-23T03:39:32.642Z\"}"
+[2025-09-23T04:10:45.159Z] POST /api/citas - 401 - IP: ::1 - User: anonymous - Time: 13ms - Data: "{\"success\":false,\"mensaje\":\"Token inválido\",\"codigo\":\"INVALID_TOKEN\"}"
+[2025-09-23T05:14:40.178Z] GET / - 500 - IP: ::1 - User: anonymous - Time: 14ms - Data: "{\"success\":false,\"mensaje\":\"Error interno del servidor\"}"
+[2025-09-23T05:14:40.223Z] GET / - 500 - IP: ::1 - User: anonymous - Time: 4ms - Data: "{\"success\":false,\"mensaje\":\"Error interno del servidor\"}"
+[2025-09-23T05:14:48.073Z] GET / - 500 - IP: ::1 - User: anonymous - Time: 4ms - Data: "{\"success\":false,\"mensaje\":\"Error interno del servidor\"}"
+[2025-09-23T05:14:48.770Z] GET / - 500 - IP: ::1 - User: anonymous - Time: 5ms - Data: "{\"success\":false,\"mensaje\":\"Error interno del servidor\"}"
+[2025-09-23T05:14:49.818Z] GET / - 500 - IP: ::1 - User: anonymous - Time: 7ms - Data: "{\"success\":false,\"mensaje\":\"Error interno del servidor\"}"
+[2025-09-23T05:14:49.844Z] GET / - 500 - IP: ::1 - User: anonymous - Time: 6ms - Data: "{\"success\":false,\"mensaje\":\"Error interno del servidor\"}"
+[2025-09-23T05:14:52.294Z] GET / - 500 - IP: ::1 - User: anonymous - Time: 5ms - Data: "{\"success\":false,\"mensaje\":\"Error interno del servidor\"}"
+[2025-09-23T05:14:52.307Z] GET /combos - 500 - IP: ::1 - User: anonymous - Time: 5ms - Data: "{\"success\":false,\"mensaje\":\"Error interno del servidor\"}"
+[2025-09-23T05:14:52.318Z] GET / - 500 - IP: ::1 - User: anonymous - Time: 3ms - Data: "{\"success\":false,\"mensaje\":\"Error interno del servidor\"}"
+[2025-09-23T05:14:52.330Z] GET /combos - 500 - IP: ::1 - User: anonymous - Time: 7ms - Data: "{\"success\":false,\"mensaje\":\"Error interno del servidor\"}"
+[2025-09-23T05:18:23.361Z] GET /combos - 500 - IP: ::1 - User: anonymous - Time: 3ms - Data: "{\"success\":false,\"mensaje\":\"Error interno del servidor\"}"
+[2025-09-23T05:18:23.372Z] GET / - 500 - IP: ::1 - User: anonymous - Time: 6ms - Data: "{\"success\":false,\"mensaje\":\"Error interno del servidor\"}"
+[2025-09-23T05:18:31.276Z] GET /combos - 500 - IP: ::1 - User: anonymous - Time: 2ms - Data: "{\"success\":false,\"mensaje\":\"Error interno del servidor\"}"
+[2025-09-23T05:18:31.282Z] GET / - 500 - IP: ::1 - User: anonymous - Time: 2ms - Data: "{\"success\":false,\"mensaje\":\"Error interno del servidor\"}"
+[2025-09-23T05:19:08.382Z] GET / - 500 - IP: ::1 - User: anonymous - Time: 6ms - Data: "{\"success\":false,\"mensaje\":\"Error interno del servidor\"}"
+[2025-09-23T05:19:08.405Z] GET /combos - 500 - IP: ::1 - User: anonymous - Time: 10ms - Data: "{\"success\":false,\"mensaje\":\"Error interno del servidor\"}"
+[2025-09-23T05:19:23.409Z] GET / - 500 - IP: ::1 - User: anonymous - Time: 4ms - Data: "{\"success\":false,\"mensaje\":\"Error interno del servidor\"}"
+[2025-09-23T05:19:23.425Z] GET /combos - 500 - IP: ::1 - User: anonymous - Time: 4ms - Data: "{\"success\":false,\"mensaje\":\"Error interno del servidor\"}"
+[2025-09-23T05:19:23.442Z] GET / - 500 - IP: ::1 - User: anonymous - Time: 9ms - Data: "{\"success\":false,\"mensaje\":\"Error interno del servidor\"}"
+[2025-09-23T05:19:23.456Z] GET /combos - 500 - IP: ::1 - User: anonymous - Time: 8ms - Data: "{\"success\":false,\"mensaje\":\"Error interno del servidor\"}"
+[2025-09-23T05:22:17.412Z] GET / - 500 - IP: ::1 - User: anonymous - Time: 16ms - Data: "{\"success\":false,\"mensaje\":\"Error interno del servidor\"}"
+[2025-09-23T05:22:17.448Z] GET / - 500 - IP: ::1 - User: anonymous - Time: 8ms - Data: "{\"success\":false,\"mensaje\":\"Error interno del servidor\"}"
+[2025-09-23T05:22:21.379Z] GET / - 500 - IP: ::1 - User: anonymous - Time: 4ms - Data: "{\"success\":false,\"mensaje\":\"Error interno del servidor\"}"
+[2025-09-23T05:22:21.408Z] GET / - 500 - IP: ::1 - User: anonymous - Time: 3ms - Data: "{\"success\":false,\"mensaje\":\"Error interno del servidor\"}"
+[2025-09-23T05:27:55.251Z] GET / - 500 - IP: ::1 - User: anonymous - Time: 34ms - Data: "{\"success\":false,\"mensaje\":\"Error interno del servidor\"}"
+[2025-09-23T05:27:55.336Z] GET / - 500 - IP: ::1 - User: anonymous - Time: 38ms - Data: "{\"success\":false,\"mensaje\":\"Error interno del servidor\"}"
+[2025-09-23T05:27:56.985Z] GET / - 500 - IP: ::1 - User: anonymous - Time: 8ms - Data: "{\"success\":false,\"mensaje\":\"Error interno del servidor\"}"
+[2025-09-23T05:27:57.014Z] GET / - 500 - IP: ::1 - User: anonymous - Time: 7ms - Data: "{\"success\":false,\"mensaje\":\"Error interno del servidor\"}"
+[2025-09-23T05:28:00.922Z] GET / - 500 - IP: ::1 - User: anonymous - Time: 6ms - Data: "{\"success\":false,\"mensaje\":\"Error interno del servidor\"}"
+[2025-09-23T05:28:00.936Z] GET /combos - 500 - IP: ::1 - User: anonymous - Time: 6ms - Data: "{\"success\":false,\"mensaje\":\"Error interno del servidor\"}"
+[2025-09-23T05:28:00.955Z] GET / - 500 - IP: ::1 - User: anonymous - Time: 5ms - Data: "{\"success\":false,\"mensaje\":\"Error interno del servidor\"}"
+[2025-09-23T05:28:00.985Z] GET /combos - 500 - IP: ::1 - User: anonymous - Time: 12ms - Data: "{\"success\":false,\"mensaje\":\"Error interno del servidor\"}"
+[2025-09-24T13:51:43.624Z] POST /api/auth/admin-login - 400 - IP: ::1 - User: anonymous - Time: 24ms - Data: "{\"success\":false,\"mensaje\":\"Datos inválidos\",\"codigo\":\"VALIDATION_ERROR\",\"errores\":[{\"campo\":\"usuario\",\"mensaje\":\"El usuario solo puede contener letras, números y guiones bajos\",\"valor\":\"admin \"}]}"
+[2025-09-24T14:17:54.709Z] POST /api/auth/admin-login - 401 - IP: ::1 - User: anonymous - Time: 34ms - Data: "{\"success\":false,\"mensaje\":\"Credenciales de administrador inválidas\",\"codigo\":\"INVALID_ADMIN_CREDENTIALS\",\"detalles\":null,\"timestamp\":\"2025-09-24T14:17:54.704Z\"}"
