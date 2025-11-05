@@ -12,33 +12,36 @@ const db = mysql.createPool({
   waitForConnections: true,
   connectionLimit: 5,
   queueLimit: 0,
-  ssl: {
-    rejectUnauthorized: false,
-  },
   enableKeepAlive: true,
   keepAliveInitialDelay: 0,
   connectTimeout: 30000, // 30 segundos
-  acquireTimeout: 30000,
-  timeout: 60000,
-  debug: process.env.NODE_ENV !== 'production',
-  maxIdle: 10,
-  idleTimeout: 60000,
-  // Retry configuration
-  acquireRetryAttempts: 10,
-  acquireRetryDelay: 1000,
+  ssl: {
+    rejectUnauthorized: false
+  }
 });
 
-// Probar la conexión
-async function testConnection() {
-  try {
-    console.log("🔄 Intentando conectar a MySQL...");
-    const [rows] = await db.query("SELECT NOW() AS now");
-    console.log("✅ Conexión a MySQL exitosa → Hora del servidor:", rows[0].now);
-  } catch (error) {
-    console.error("❌ Error conectando a MySQL");
-    console.error("Código:", error.code);
-    console.error("Mensaje:", error.message);
+// Probar la conexión con reintentos
+async function testConnection(retries = 5) {
+  for (let i = 0; i < retries; i++) {
+    try {
+      console.log(`🔄 Intento ${i + 1}/${retries} de conectar a MySQL...`);
+      const [rows] = await db.query("SELECT NOW() AS now");
+      console.log("✅ Conexión a MySQL exitosa → Hora del servidor:", rows[0].now);
+      return true;
+    } catch (error) {
+      console.error(`❌ Error en intento ${i + 1}/${retries}`);
+      console.error("Código:", error.code);
+      console.error("Mensaje:", error.message);
+      
+      if (i < retries - 1) {
+        console.log("⏳ Esperando 5 segundos antes de reintentar...");
+        await new Promise(resolve => setTimeout(resolve, 5000));
+      } else {
+        console.error("❌ Se agotaron los intentos de conexión");
+      }
+    }
   }
+  return false;
 }
 
 testConnection();
