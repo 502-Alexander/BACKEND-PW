@@ -4,16 +4,16 @@ dotenv.config();
 
 // Crear pool de conexiones usando las variables del .env
 const db = mysql.createPool({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
+  host: process.env.DB_HOST || 'containers-us-west-45.railway.app',
+  user: process.env.DB_USER || 'root',
   password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME,
-  port: process.env.DB_PORT,
+  database: process.env.DB_NAME || 'salon_sf', // Cambiado de 'railway' a 'salon_sf'
+  port: process.env.DB_PORT || 6442,
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,
   ssl: {
-    rejectUnauthorized: false, // Requerido en Railway
+    rejectUnauthorized: false,
   },
   connectTimeout: 10000,
 });
