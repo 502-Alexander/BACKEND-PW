@@ -1,12 +1,11 @@
 import express from 'express';
 import path from 'path';
 import dotenv from 'dotenv';
-dotenv.config();
-
 import cors from 'cors';
 import jwt from 'jsonwebtoken';
 
-// Middlewares y rutas
+dotenv.config();
+
 import middlewares from '../middlewares/index.js';
 import usuarioRoutes from '../routes/usuarioRoutes.js';
 import verificacionRoutes from '../routes/verificacionRoutes.js';
@@ -23,20 +22,21 @@ const PORT = process.env.PORT || 4000;
 // ===============================
 // CONFIGURACIÓN DE CORS
 // ===============================
-console.log('🔍 Orígenes CORS permitidos:', process.env.CORS_ORIGIN);
+const allowedOrigins = process.env.CORS_ORIGIN
+  ? process.env.CORS_ORIGIN.split(',').map(o => o.trim())
+  : [];
+
+console.log('🌍 CORS_ORIGIN permitidos:', allowedOrigins);
 
 const corsOptions = {
   origin: function (origin, callback) {
-    if (!origin) return callback(null, true); // permitir peticiones sin origin (como móviles o curl)
-    
-    const allowedOrigins = process.env.CORS_ORIGIN
-      ? process.env.CORS_ORIGIN.split(',').map(o => o.trim())
-      : [];
+    if (!origin) return callback(null, true);
 
-    if (
-      allowedOrigins.includes('*') ||
-      allowedOrigins.some(domain => origin.startsWith(domain))
-    ) {
+    const isAllowed = allowedOrigins.some(domain =>
+      origin === domain || origin.startsWith(domain)
+    );
+
+    if (isAllowed) {
       return callback(null, true);
     }
 
@@ -50,7 +50,7 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
-app.options('*', cors(corsOptions));
+app.options('*', cors(corsOptions)); // preflight
 
 // ===============================
 // MIDDLEWARES
@@ -84,9 +84,8 @@ app.get('/', (req, res) => {
 app.post('/api/auth/admin-login', async (req, res) => {
   try {
     const { email, password } = req.body;
-    if (!email || !password) {
+    if (!email || !password)
       return res.status(400).json({ success: false, mensaje: 'Email y contraseña requeridos' });
-    }
 
     const adminEmail = 'admin@nuevatienda.com';
     const adminPassword = 'password';
@@ -110,6 +109,7 @@ app.post('/api/auth/admin-login', async (req, res) => {
 // ===============================
 // RUTAS DE API
 // ===============================
+// ⚠️ Asegúrate de que serviciosRoutes tenga combos ANTES que :id
 app.use('/api/usuarios', usuarioRoutes);
 app.use('/api/verificacion', verificacionRoutes);
 app.use('/api/productos', productosRoutes);
@@ -120,10 +120,10 @@ app.use('/api/upload', uploadRoutes);
 app.use('/api/clientes', clienteRoutes);
 
 // ===============================
-// MANEJO DE RUTAS NO EXISTENTES (404)
+// RUTAS NO EXISTENTES (404)
 // ===============================
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', process.env.CORS_ORIGIN || '*');
+app.use((req, res) => {
+  res.header('Access-Control-Allow-Origin', '*');
   res.status(404).json({
     success: false,
     mensaje: `Ruta no encontrada: ${req.originalUrl}`
@@ -131,10 +131,10 @@ app.use((req, res, next) => {
 });
 
 // ===============================
-// MANEJO DE ERRORES GLOBALES
+// MANEJO GLOBAL DE ERRORES
 // ===============================
 app.use((err, req, res, next) => {
-  console.error('🔥 Error no manejado:', err);
+  console.error('🔥 Error no manejado:', err.message);
   res.status(500).json({
     success: false,
     mensaje: 'Error interno del servidor',
@@ -146,7 +146,6 @@ app.use((err, req, res, next) => {
 // INICIALIZACIÓN DEL SERVIDOR
 // ===============================
 app.listen(PORT, () => {
-  console.log(`🚀 Servidor corriendo en http://localhost:${PORT}`);
+  console.log(`🚀 Servidor corriendo en puerto ${PORT}`);
   console.log(`🔧 Entorno: ${process.env.NODE_ENV}`);
-  console.log('🌍 CORS_ORIGIN:', process.env.CORS_ORIGIN);
 });
