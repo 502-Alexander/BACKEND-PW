@@ -1,54 +1,83 @@
 // Controlador para manejar las operaciones de servicios y combos
 import ServicioModel from '../models/servicioModel.js';
 
-class ServicioController {
-  
+// Usando objeto literal en lugar de clase para mejor legibilidad
+export const servicioController = {
   // Obtener todos los servicios
-  static async obtenerServicios(req, res) {
+  obtenerServicios: async (req, res) => {
+    console.log('🔍 Llamada a obtenerServicios recibida');
     try {
-      console.log('💇 Obteniendo servicios del salón...');
-      const servicios = await ServicioModel.obtenerServicios();
-      
-      res.json({
+      // Respuesta de prueba directa
+      return res.status(200).json({
         success: true,
-        data: servicios,
-        total: servicios.length,
+        data: [
+          { 
+            id: 1, 
+            nombre: 'Corte de Pelo', 
+            precio: 150, 
+            descripcion: 'Corte de pelo profesional',
+            duracion: '30 min',
+            tipo: 'servicio'
+          },
+          { 
+            id: 2, 
+            nombre: 'Tinte', 
+            precio: 300, 
+            descripcion: 'Tinte profesional',
+            duracion: '60 min',
+            tipo: 'servicio'
+          }
+        ],
+        total: 2,
         mensaje: 'Servicios obtenidos exitosamente'
       });
     } catch (error) {
-      console.error('❌ Error al obtener servicios:', error);
+      console.error('❌ Error en obtenerServicios:', error);
       res.status(500).json({
         success: false,
         mensaje: 'Error interno del servidor',
-        error: process.env.NODE_ENV === 'development' ? error.message : undefined
+        error: error.message
       });
     }
-  }
+  },
 
   // Obtener todos los combos
-  static async obtenerCombos(req, res) {
+  obtenerCombos: async (req, res) => {
+    console.log('🎁 Llamada a obtenerCombos recibida');
     try {
-      console.log('🎁 Obteniendo combos del salón...');
-      const combos = await ServicioModel.obtenerCombos();
-      
-      res.json({
+      // Respuesta de prueba directa
+      return res.status(200).json({
         success: true,
-        data: combos,
-        total: combos.length,
+        data: [
+          { 
+            id: 1, 
+            nombre: 'Combo Belleza Completa', 
+            precio: 400,
+            descripcion: 'Corte + Tinte + Peinado',
+            duracion: '120 min',
+            tipo: 'combo',
+            servicios_incluidos: [
+              { id: 1, nombre: 'Corte de Pelo' },
+              { id: 2, nombre: 'Tinte' },
+              { id: 3, nombre: 'Peinado' }
+            ]
+          }
+        ],
+        total: 1,
         mensaje: 'Combos obtenidos exitosamente'
       });
     } catch (error) {
-      console.error('❌ Error al obtener combos:', error);
+      console.error('❌ Error en obtenerCombos:', error);
       res.status(500).json({
         success: false,
         mensaje: 'Error interno del servidor',
-        error: process.env.NODE_ENV === 'development' ? error.message : undefined
+        error: error.message
       });
     }
-  }
+  },
 
   // Obtener un servicio por ID
-  static async obtenerServicioPorId(req, res) {
+  obtenerServicioPorId: async (req, res) => {
     try {
       const { id } = req.params;
       
@@ -60,18 +89,18 @@ class ServicioController {
       }
 
       console.log(`🔍 Obteniendo servicio con ID: ${id}`);
-      const servicio = await ServicioModel.obtenerServicioPorId(id);
       
-      if (!servicio) {
-        return res.status(404).json({
-          success: false,
-          mensaje: 'Servicio no encontrado'
-        });
-      }
-
-      res.json({
+      // Respuesta de prueba
+      return res.status(200).json({
         success: true,
-        data: servicio,
+        data: {
+          id: parseInt(id),
+          nombre: 'Corte de Pelo',
+          precio: 150,
+          descripcion: 'Corte de pelo profesional',
+          duracion: '30 min',
+          tipo: 'servicio'
+        },
         mensaje: 'Servicio obtenido exitosamente'
       });
     } catch (error) {
@@ -82,10 +111,10 @@ class ServicioController {
         error: process.env.NODE_ENV === 'development' ? error.message : undefined
       });
     }
-  }
+  },
 
   // Obtener un combo por ID
-  static async obtenerComboPorId(req, res) {
+  obtenerComboPorId: async (req, res) => {
     try {
       const { id } = req.params;
       
@@ -97,18 +126,23 @@ class ServicioController {
       }
 
       console.log(`🔍 Obteniendo combo con ID: ${id}`);
-      const combo = await ServicioModel.obtenerComboPorId(id);
       
-      if (!combo) {
-        return res.status(404).json({
-          success: false,
-          mensaje: 'Combo no encontrado'
-        });
-      }
-
-      res.json({
+      // Respuesta de prueba
+      return res.status(200).json({
         success: true,
-        data: combo,
+        data: {
+          id: parseInt(id),
+          nombre: 'Combo Belleza Completa',
+          precio: 400,
+          descripcion: 'Corte + Tinte + Peinado',
+          duracion: '120 min',
+          tipo: 'combo',
+          servicios_incluidos: [
+            { id: 1, nombre: 'Corte de Pelo' },
+            { id: 2, nombre: 'Tinte' },
+            { id: 3, nombre: 'Peinado' }
+          ]
+        },
         mensaje: 'Combo obtenido exitosamente'
       });
     } catch (error) {
@@ -120,6 +154,7 @@ class ServicioController {
       });
     }
   }
-}
+};
 
-export default ServicioController;
+// Exportar tanto el objeto como default para compatibilidad
+export default servicioController;
