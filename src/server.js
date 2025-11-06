@@ -3,6 +3,9 @@ import path from 'path';
 import dotenv from 'dotenv';
 dotenv.config();
 
+import cors from 'cors';
+import jwt from 'jsonwebtoken';
+
 // Middlewares y rutas
 import middlewares from '../middlewares/index.js';
 import usuarioRoutes from '../routes/usuarioRoutes.js';
@@ -13,34 +16,32 @@ import carritoRoutes from '../routes/carritoRoutes.js';
 import serviciosRoutes from '../routes/serviciosRoutes.js';
 import uploadRoutes from '../routes/uploadRoutes.js';
 import clienteRoutes from '../routes/clienteRoutes.js';
-import cors from 'cors';
-import jwt from 'jsonwebtoken';
 
 const app = express();
 const PORT = process.env.PORT || 4000;
 
 // ===============================
-// CONFIGURACIÓN DE CORS MEJORADA
+// CONFIGURACIÓN DE CORS
 // ===============================
 console.log('🔍 Orígenes CORS permitidos:', process.env.CORS_ORIGIN);
 
 const corsOptions = {
   origin: function (origin, callback) {
-    // Permitir peticiones sin 'origin' (como apps móviles)
-    if (!origin) return callback(null, true);
+    if (!origin) return callback(null, true); // permitir peticiones sin origin (como móviles o curl)
     
-    const allowedOrigins = process.env.CORS_ORIGIN ? 
-      process.env.CORS_ORIGIN.split(',').map(item => item.trim()) : 
-      [];
-    
-    // Verificar si el origen está en la lista blanca
-    if (allowedOrigins.includes('*') || 
-        allowedOrigins.some(domain => origin.startsWith(domain))) {
+    const allowedOrigins = process.env.CORS_ORIGIN
+      ? process.env.CORS_ORIGIN.split(',').map(o => o.trim())
+      : [];
+
+    if (
+      allowedOrigins.includes('*') ||
+      allowedOrigins.some(domain => origin.startsWith(domain))
+    ) {
       return callback(null, true);
     }
-    
-    console.warn('⚠️  Intento de acceso no permitido por CORS:', origin);
-    callback(new Error('No permitido por CORS'));
+
+    console.warn('⚠️ Intento de acceso no permitido por CORS:', origin);
+    return callback(new Error('No permitido por CORS'));
   },
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
@@ -49,15 +50,7 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
-
-// Manejar preflight requests
 app.options('*', cors(corsOptions));
-
-// Middleware para logging
-app.use((req, res, next) => {
-  console.log(`🌐 ${new Date().toISOString()} - ${req.method} ${req.originalUrl}`);
-  next();
-});
 
 // ===============================
 // MIDDLEWARES
@@ -68,8 +61,14 @@ app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 app.use(middlewares.security.sanitizeInput);
 app.use('/uploads', express.static(path.join(path.resolve(), 'uploads')));
 
+// Logging básico
+app.use((req, res, next) => {
+  console.log(`🌐 ${req.method} ${req.originalUrl}`);
+  next();
+});
+
 // ===============================
-// RUTAS
+// RUTA BASE
 // ===============================
 app.get('/', (req, res) => {
   res.json({
@@ -79,15 +78,20 @@ app.get('/', (req, res) => {
   });
 });
 
+// ===============================
+// LOGIN ADMIN SIMPLIFICADO
+// ===============================
 app.post('/api/auth/admin-login', async (req, res) => {
   try {
     const { email, password } = req.body;
-    if (!email || !password) return res.status(400).json({ success: false, mensaje: 'Email y contraseña requeridos' });
+    if (!email || !password) {
+      return res.status(400).json({ success: false, mensaje: 'Email y contraseña requeridos' });
+    }
 
     const adminEmail = 'admin@nuevatienda.com';
     const adminPassword = 'password';
 
-    if(email === adminEmail && password === adminPassword){
+    if (email === adminEmail && password === adminPassword) {
       const token = jwt.sign(
         { id: 1, email: adminEmail, rol: 'admin' },
         process.env.JWT_SECRET,
@@ -99,11 +103,13 @@ app.post('/api/auth/admin-login', async (req, res) => {
     }
   } catch (error) {
     console.error('❌ Error en login de admin:', error);
-    return res.status(500).json({ success: false, mensaje: 'Error interno del servidor' });
+    res.status(500).json({ success: false, mensaje: 'Error interno del servidor' });
   }
 });
 
-// Rutas de API
+// ===============================
+// RUTAS DE API
+// ===============================
 app.use('/api/usuarios', usuarioRoutes);
 app.use('/api/verificacion', verificacionRoutes);
 app.use('/api/productos', productosRoutes);
@@ -114,7 +120,18 @@ app.use('/api/upload', uploadRoutes);
 app.use('/api/clientes', clienteRoutes);
 
 // ===============================
-// MANEJO DE ERRORES
+// MANEJO DE RUTAS NO EXISTENTES (404)
+// ===============================
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', process.env.CORS_ORIGIN || '*');
+  res.status(404).json({
+    success: false,
+    mensaje: `Ruta no encontrada: ${req.originalUrl}`
+  });
+});
+
+// ===============================
+// MANEJO DE ERRORES GLOBALES
 // ===============================
 app.use((err, req, res, next) => {
   console.error('🔥 Error no manejado:', err);
@@ -129,7 +146,7 @@ app.use((err, req, res, next) => {
 // INICIALIZACIÓN DEL SERVIDOR
 // ===============================
 app.listen(PORT, () => {
-  console.log(`🚀 Servidor Backend corriendo en http://localhost:${PORT}`);
+  console.log(`🚀 Servidor corriendo en http://localhost:${PORT}`);
   console.log(`🔧 Entorno: ${process.env.NODE_ENV}`);
-  console.log('🌍 Orígenes permitidos:', process.env.CORS_ORIGIN);
+  console.log('🌍 CORS_ORIGIN:', process.env.CORS_ORIGIN);
 });
