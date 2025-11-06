@@ -1,7 +1,7 @@
 // ===============================
 // Controlador para servicios y combos
 // ===============================
-import pool from '../config/db.js'; // tu conexión MySQL
+import pool from '../config/database.js'; // tu conexión MySQL
 
 export const servicioController = {
   // Obtener todos los servicios
