@@ -1,14 +1,9 @@
-// ===============================
-// Controlador para servicios y combos
-// ===============================
-//import pool from '../config/database.js'; // tu conexión MySQL
-import { db } from '../config/database.js';
+import db from '../database/ConexionBDD.js';
 
 export const servicioController = {
   // Obtener todos los servicios
   async obtenerServicios(req, res) {
     try {
-      //const [rows] = await pool.query('SELECT * FROM servicios');
       const [rows] = await db.query('SELECT * FROM servicios');
       if (rows.length === 0) {
         return res.status(200).json({ servicios: [] });
@@ -24,8 +19,9 @@ export const servicioController = {
   async obtenerServicioPorId(req, res) {
     try {
       const { id } = req.params;
-      const [rows] = await pool.query('SELECT * FROM servicios WHERE id = ?', [id]);
-      if (rows.length === 0) return res.status(404).json({ error: 'Servicio no encontrado' });
+      const [rows] = await db.query('SELECT * FROM servicios WHERE id = ?', [id]);
+      if (rows.length === 0)
+        return res.status(404).json({ error: 'Servicio no encontrado' });
       res.status(200).json({ data: rows[0] });
     } catch (error) {
       console.error('❌ Error en obtenerServicioPorId:', error);
@@ -36,7 +32,7 @@ export const servicioController = {
   // Obtener todos los combos
   async obtenerCombos(req, res) {
     try {
-      const [rows] = await pool.query('SELECT * FROM combos');
+      const [rows] = await db.query('SELECT * FROM combos');
       if (rows.length === 0) {
         return res.status(200).json({ combos: [] });
       }
@@ -51,8 +47,9 @@ export const servicioController = {
   async obtenerComboPorId(req, res) {
     try {
       const { id } = req.params;
-      const [rows] = await pool.query('SELECT * FROM combos WHERE id = ?', [id]);
-      if (rows.length === 0) return res.status(404).json({ error: 'Combo no encontrado' });
+      const [rows] = await db.query('SELECT * FROM combos WHERE id = ?', [id]);
+      if (rows.length === 0)
+        return res.status(404).json({ error: 'Combo no encontrado' });
       res.status(200).json({ data: rows[0] });
     } catch (error) {
       console.error('❌ Error en obtenerComboPorId:', error);
@@ -64,7 +61,7 @@ export const servicioController = {
   async crearServicio(req, res) {
     try {
       const { nombre, precio, descripcion } = req.body;
-      await pool.query(
+      await db.query(
         'INSERT INTO servicios (nombre, precio, descripcion) VALUES (?, ?, ?)',
         [nombre, precio, descripcion]
       );
@@ -79,7 +76,7 @@ export const servicioController = {
   async crearCombo(req, res) {
     try {
       const { nombre, precio, descripcion } = req.body;
-      await pool.query(
+      await db.query(
         'INSERT INTO combos (nombre, precio, descripcion) VALUES (?, ?, ?)',
         [nombre, precio, descripcion]
       );
@@ -95,7 +92,7 @@ export const servicioController = {
     try {
       const { id } = req.params;
       const { nombre, precio, descripcion } = req.body;
-      await pool.query(
+      await db.query(
         'UPDATE servicios SET nombre=?, precio=?, descripcion=? WHERE id=?',
         [nombre, precio, descripcion, id]
       );
@@ -111,7 +108,7 @@ export const servicioController = {
     try {
       const { id } = req.params;
       const { nombre, precio, descripcion } = req.body;
-      await pool.query(
+      await db.query(
         'UPDATE combos SET nombre=?, precio=?, descripcion=? WHERE id=?',
         [nombre, precio, descripcion, id]
       );
@@ -126,7 +123,7 @@ export const servicioController = {
   async eliminarServicio(req, res) {
     try {
       const { id } = req.params;
-      await pool.query('DELETE FROM servicios WHERE id=?', [id]);
+      await db.query('DELETE FROM servicios WHERE id=?', [id]);
       res.status(200).json({ message: 'Servicio eliminado correctamente' });
     } catch (error) {
       console.error('❌ Error en eliminarServicio:', error);
@@ -138,7 +135,7 @@ export const servicioController = {
   async eliminarCombo(req, res) {
     try {
       const { id } = req.params;
-      await pool.query('DELETE FROM combos WHERE id=?', [id]);
+      await db.query('DELETE FROM combos WHERE id=?', [id]);
       res.status(200).json({ message: 'Combo eliminado correctamente' });
     } catch (error) {
       console.error('❌ Error en eliminarCombo:', error);
