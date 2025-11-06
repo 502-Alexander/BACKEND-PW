@@ -1,89 +1,146 @@
-// Controlador para manejar las operaciones de servicios y combos
-import ServicioModel from '../models/servicioModel.js';
+// ===============================
+// Controlador para servicios y combos
+// ===============================
+import pool from '../config/db.js'; // tu conexión MySQL
 
 export const servicioController = {
   // Obtener todos los servicios
-  obtenerServicios: async (req, res) => {
-    console.log('🔍 Llamada a obtenerServicios recibida');
+  async obtenerServicios(req, res) {
     try {
-      return res.status(200).json({
-        success: true,
-        data: [
-          { id: 1, nombre: 'Corte de Pelo', precio: 150, descripcion: 'Corte de pelo profesional', duracion: '30 min', tipo: 'servicio' },
-          { id: 2, nombre: 'Tinte', precio: 300, descripcion: 'Tinte profesional', duracion: '60 min', tipo: 'servicio' }
-        ],
-        total: 2,
-        mensaje: 'Servicios obtenidos exitosamente'
-      });
+      const [rows] = await pool.query('SELECT * FROM servicios');
+      if (rows.length === 0) {
+        return res.status(200).json({ servicios: [] });
+      }
+      res.status(200).json({ servicios: rows });
     } catch (error) {
       console.error('❌ Error en obtenerServicios:', error);
-      res.status(500).json({ success: false, mensaje: 'Error interno del servidor', error: error.message });
+      res.status(500).json({ error: 'Error al obtener servicios' });
+    }
+  },
+
+  // Obtener servicio por ID
+  async obtenerServicioPorId(req, res) {
+    try {
+      const { id } = req.params;
+      const [rows] = await pool.query('SELECT * FROM servicios WHERE id = ?', [id]);
+      if (rows.length === 0) return res.status(404).json({ error: 'Servicio no encontrado' });
+      res.status(200).json({ data: rows[0] });
+    } catch (error) {
+      console.error('❌ Error en obtenerServicioPorId:', error);
+      res.status(500).json({ error: 'Error al obtener el servicio' });
     }
   },
 
   // Obtener todos los combos
-  obtenerCombos: async (req, res) => {
-    console.log('🎁 Llamada a obtenerCombos recibida');
+  async obtenerCombos(req, res) {
     try {
-      return res.status(200).json({
-        success: true,
-        data: [
-          { 
-            id: 1,
-            nombre: 'Combo Belleza Completa',
-            precio: 400,
-            descripcion: 'Corte + Tinte + Peinado',
-            duracion: '120 min',
-            tipo: 'combo',
-            servicios_incluidos: [
-              { id: 1, nombre: 'Corte de Pelo' },
-              { id: 2, nombre: 'Tinte' },
-              { id: 3, nombre: 'Peinado' }
-            ]
-          }
-        ],
-        total: 1,
-        mensaje: 'Combos obtenidos exitosamente'
-      });
+      const [rows] = await pool.query('SELECT * FROM combos');
+      if (rows.length === 0) {
+        return res.status(200).json({ combos: [] });
+      }
+      res.status(200).json({ combos: rows });
     } catch (error) {
       console.error('❌ Error en obtenerCombos:', error);
-      res.status(500).json({ success: false, mensaje: 'Error interno del servidor', error: error.message });
+      res.status(500).json({ error: 'Error al obtener combos' });
     }
   },
 
-  obtenerServicioPorId: async (req, res) => {
+  // Obtener combo por ID
+  async obtenerComboPorId(req, res) {
     try {
       const { id } = req.params;
-      if (!id || isNaN(id)) return res.status(400).json({ success: false, mensaje: 'ID inválido' });
-
-      console.log(`🔍 Obteniendo servicio con ID: ${id}`);
-      return res.status(200).json({
-        success: true,
-        data: { id: parseInt(id), nombre: 'Corte de Pelo', precio: 150, descripcion: 'Corte profesional', duracion: '30 min', tipo: 'servicio' },
-        mensaje: 'Servicio obtenido exitosamente'
-      });
+      const [rows] = await pool.query('SELECT * FROM combos WHERE id = ?', [id]);
+      if (rows.length === 0) return res.status(404).json({ error: 'Combo no encontrado' });
+      res.status(200).json({ data: rows[0] });
     } catch (error) {
-      console.error('❌ Error al obtener servicio:', error);
-      res.status(500).json({ success: false, mensaje: 'Error interno del servidor', error: error.message });
+      console.error('❌ Error en obtenerComboPorId:', error);
+      res.status(500).json({ error: 'Error al obtener el combo' });
     }
   },
 
-  obtenerComboPorId: async (req, res) => {
+  // Crear servicio
+  async crearServicio(req, res) {
+    try {
+      const { nombre, precio, descripcion } = req.body;
+      await pool.query(
+        'INSERT INTO servicios (nombre, precio, descripcion) VALUES (?, ?, ?)',
+        [nombre, precio, descripcion]
+      );
+      res.status(201).json({ message: 'Servicio creado correctamente' });
+    } catch (error) {
+      console.error('❌ Error en crearServicio:', error);
+      res.status(500).json({ error: 'Error al crear servicio' });
+    }
+  },
+
+  // Crear combo
+  async crearCombo(req, res) {
+    try {
+      const { nombre, precio, descripcion } = req.body;
+      await pool.query(
+        'INSERT INTO combos (nombre, precio, descripcion) VALUES (?, ?, ?)',
+        [nombre, precio, descripcion]
+      );
+      res.status(201).json({ message: 'Combo creado correctamente' });
+    } catch (error) {
+      console.error('❌ Error en crearCombo:', error);
+      res.status(500).json({ error: 'Error al crear combo' });
+    }
+  },
+
+  // Actualizar servicio
+  async actualizarServicio(req, res) {
     try {
       const { id } = req.params;
-      if (!id || isNaN(id)) return res.status(400).json({ success: false, mensaje: 'ID inválido' });
-
-      console.log(`🔍 Obteniendo combo con ID: ${id}`);
-      return res.status(200).json({
-        success: true,
-        data: { id: parseInt(id), nombre: 'Combo Belleza Completa', precio: 400, descripcion: 'Corte + Tinte + Peinado', duracion: '120 min', tipo: 'combo' },
-        mensaje: 'Combo obtenido exitosamente'
-      });
+      const { nombre, precio, descripcion } = req.body;
+      await pool.query(
+        'UPDATE servicios SET nombre=?, precio=?, descripcion=? WHERE id=?',
+        [nombre, precio, descripcion, id]
+      );
+      res.status(200).json({ message: 'Servicio actualizado correctamente' });
     } catch (error) {
-      console.error('❌ Error al obtener combo:', error);
-      res.status(500).json({ success: false, mensaje: 'Error interno del servidor', error: error.message });
+      console.error('❌ Error en actualizarServicio:', error);
+      res.status(500).json({ error: 'Error al actualizar servicio' });
     }
-  }
+  },
+
+  // Actualizar combo
+  async actualizarCombo(req, res) {
+    try {
+      const { id } = req.params;
+      const { nombre, precio, descripcion } = req.body;
+      await pool.query(
+        'UPDATE combos SET nombre=?, precio=?, descripcion=? WHERE id=?',
+        [nombre, precio, descripcion, id]
+      );
+      res.status(200).json({ message: 'Combo actualizado correctamente' });
+    } catch (error) {
+      console.error('❌ Error en actualizarCombo:', error);
+      res.status(500).json({ error: 'Error al actualizar combo' });
+    }
+  },
+
+  // Eliminar servicio
+  async eliminarServicio(req, res) {
+    try {
+      const { id } = req.params;
+      await pool.query('DELETE FROM servicios WHERE id=?', [id]);
+      res.status(200).json({ message: 'Servicio eliminado correctamente' });
+    } catch (error) {
+      console.error('❌ Error en eliminarServicio:', error);
+      res.status(500).json({ error: 'Error al eliminar servicio' });
+    }
+  },
+
+  // Eliminar combo
+  async eliminarCombo(req, res) {
+    try {
+      const { id } = req.params;
+      await pool.query('DELETE FROM combos WHERE id=?', [id]);
+      res.status(200).json({ message: 'Combo eliminado correctamente' });
+    } catch (error) {
+      console.error('❌ Error en eliminarCombo:', error);
+      res.status(500).json({ error: 'Error al eliminar combo' });
+    }
+  },
 };
-
-export default servicioController;
