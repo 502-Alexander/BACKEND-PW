@@ -8,7 +8,8 @@ export const servicioController = {
   // Obtener todos los servicios
   async obtenerServicios(req, res) {
     try {
-      const [rows] = await pool.query('SELECT * FROM servicios');
+      //const [rows] = await pool.query('SELECT * FROM servicios');
+      const [rows] = await db.query('SELECT * FROM servicios');
       if (rows.length === 0) {
         return res.status(200).json({ servicios: [] });
       }
